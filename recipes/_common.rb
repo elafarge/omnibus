@@ -22,7 +22,7 @@ include_recipe 'chef-sugar::default'
 require 'chef/sugar/core_extensions'
 
 # Create the user
-include_recipe 'omnibus::_user'
+# include_recipe 'omnibus::_user'
 
 # Ensure the cache directory exists
 directory Chef::Config[:file_cache_path] do
