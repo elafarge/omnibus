@@ -35,22 +35,22 @@ group node['omnibus']['build_user_group'] do
   ignore_failure true if windows?
 end
 
-user node['omnibus']['build_user'] do
-  home     build_user_home
-  supports manage_home: true
-  password node['omnibus']['build_user_password']
-  unless windows?
-    shell '/bin/bash'
-    gid   node['omnibus']['build_user_group']
-  end
-  action   :create
-end
-
-group node['omnibus']['build_user_group'] do
-  members node['omnibus']['build_user']
-  append true
-  action :modify
-end
+# user node['omnibus']['build_user'] do
+#   home     build_user_home
+#   supports manage_home: true
+#   password node['omnibus']['build_user_password']
+#   unless windows?
+#     shell '/bin/bash'
+#     gid   node['omnibus']['build_user_group']
+#   end
+#   action   :create
+# end
+#
+# group node['omnibus']['build_user_group'] do
+#   members node['omnibus']['build_user']
+#   append true
+#   action :modify
+# end
 
 # Ensure the build user's home directory exists
 if windows?
